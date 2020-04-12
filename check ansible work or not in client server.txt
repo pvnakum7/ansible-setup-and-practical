@@ -1,0 +1,50 @@
+
+
+#after ssh key copy done
+
+Note:
+------ Ansible connection check----- 
+#after ssh key copy done
+
+
+
+--->This Command for Check list off module 
+ to show module "ansible-doc -l"
+ for particular module show ansible-doc -s $module_namr
+
+
+--->add the hostname into ansible file
+
+Ansible Server host file location:
+nano  /etc/ansible/hosts
+
+And enter host name like 
+
+#metho1:
+
+win1 ansible_host=192.168.1.20
+centos1 ansible_host=203.0.113.112
+
+#method 2 with group:
+
+[groupname]			note: <----- this ip is client server group name like appserver, dbserver
+192.168.1.120		note: <----- this ip is client server ip
+172.16.0.50			note: <----- this ip is client server ip
+
+[groupname1]		note: <----- this ip is client server group name like appserver, dbserver
+81.5.254.2			note: <----- this ip is client server ip
+
+--> Command for check the ping of server is connnect to client or not :
+ 
+ method1 commnad: 
+ ansible $hostname -m ping
+ 
+ ansible dbserver -m ping
+(Here group name(hostname) is all , dbserver any name)
+--->also check perticulaer client connection like hostname=any client serverip(192.168.0.120)
+	method2 commnad: 
+	ansible $hostname -m ping 
+	ansible 192.168.0.120 -m ping
+
+
+

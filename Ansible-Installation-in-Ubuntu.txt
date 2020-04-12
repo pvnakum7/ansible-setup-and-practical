@@ -1,0 +1,69 @@
+
+
+Ubunut Install Ansible
+
+
+
+sudo apt-add-repository ppa:ansible/ansible
+
+sudo apt update
+
+sudo apt install ansible
+
+
+
+Set Host for client PC or Laptop or server
+
+
+sudo nano /etc/ansible/hosts
+
+like 
+enter host file ip
+
+#metho1:
+
+win1 ansible_host=192.168.1.20
+centos1 ansible_host=203.0.113.112
+
+#method 2 with group:
+
+[groupname]
+192.168.1.120
+172.16.0.50
+
+[groupname1]
+81.5.254.2
+
+
+
+
+
+and 
+generate public key :
+step 1:
+ssh-keygen
+
+step2:
+cd ~/.ssh
+
+step3:
+
+ssh-copy-id -i id_ras.pub username@hostotherserverip
+
+
+
+
+
+
+Client PC require Python installed require:
+
+ 
+Client Centos and Ubuntu:  python path bellow require
+/usr/bin/python
+
+
+
+
+
+
+
