@@ -1,0 +1,22 @@
+
+Ad-Hoc Commands manage packagies
+
+
+
+Install Httpd into Centos Client server command bellow: 
+ (note: here $hostname = clientserverIP or client server GroupName)
+Command for httpd:
+
+ansible $hostname -m yum -a "name=httpd state=present" -s
+
+(note if you are not use root user then add on sudo in clint system
+// -s means "sudo"       <-------note this)
+
+
+Httpd Commnad Started Commnad into client Server:
+  
+  ansible $hostname -m service -a "nmae=httpd state=started"
+
+
+--->for install elinks in centos
+ansible  centos -m yum -a "name=elinks state=installed"

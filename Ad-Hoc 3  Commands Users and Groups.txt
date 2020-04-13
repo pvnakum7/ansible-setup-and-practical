@@ -1,0 +1,29 @@
+Ad-Hoc 3  Commands Users and Groups
+
+
+The ‘user’ module allows easy creation and manipulation of existing user accounts, as well as removal of user accounts that may exist:
+
+
+--->Add use into app server and username is paras
+
+ ansible appserver -m user -a "name=paras password=<crypted password here>"
+
+
+--->Delete user from app server username is pvnakum
+
+
+ ansible appserver -m user -a "name=pvnakum state=absent"
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,32 @@
+Introduction To Ad-Hoc Commands and file module
+
+
+
+File Transfer or File Module: 
+--->Ansible can SCP lots of files to multiple machines in parallel.
+Commnad:
+
+
+ansible appserver -m copy -a "src=/etc/hosts dest=/tmp/hosts"
+
+
+Note: ServerGroup = appserver
+
+
+--->Files permission change command in Ansible
+
+Command 1:
+ansible webservers -m file -a "dest=/srv/foo/a.txt mode=600"
+
+Commnad 2:
+ansible webservers -m file -a "dest=/srv/foo/b.txt mode=600 owner=pvnakum group=mdehaan"
+
+
+
+--->The file module can also create directories, similar to mkdir -p:
+
+ ansible webservers -m file -a "dest=/path/to/c mode=755 owner=mdehaan group=mdehaan state=directory"
+
+
+--->The file module can also delete directories or files
+ ansible webservers -m file -a "dest=/path/to/c state=absent"

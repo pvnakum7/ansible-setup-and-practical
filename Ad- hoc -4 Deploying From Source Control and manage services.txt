@@ -1,0 +1,31 @@
+Deploying From Source Control and manage services
+
+
+---->Deploy your webapp straight from git: <------
+
+
+ansible devserver -m git -a "repo=https://github.com/pvnakum7/calculator.nodejs.git dest=/srv/calculator version=HEAD"
+
+
+Since Ansible modules can notify change handlers it is possible to tell Ansible to run specific tasks when the code is updated, 
+
+such as deploying Perl/Python/PHP/Ruby directly from git and then restarting apache.
+
+
+
+
+
+-----> Managing Services<------
+--->Ensure a service like htppd is started on all webservers:
+
+ ansible webservers -m service -a "name=httpd state=started"
+
+
+--->Alternatively, restart a service on all webservers:
+
+ansible webservers -m service -a "name=httpd state=restarted"
+
+
+--->Ensure a service is stopped:
+
+ansible webservers -m service -a "name=httpd state=stopped"
