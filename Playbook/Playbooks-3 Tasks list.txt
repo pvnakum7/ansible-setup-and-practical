@@ -1,0 +1,46 @@
+Playbooks-3 Tasks list
+
+
+Here is what a basic task looks like. As with most modules, the service module takes key=value arguments:
+
+
+tasks:
+  - name: make sure apache is running
+    service:
+      name: httpd
+      state: started
+
+
+---->The command and shell modules are the only modules that just take a list of arguments and don’t use the key=value form. This makes them work as simply as you would expect:
+
+tasks:
+  - name: enable selinux
+    command: /sbin/setenforce 1
+
+
+----->not zero
+The command and shell module care about return codes, so if you have a command whose successful exit code is not zero, you may wish to do this:    
+
+tasks:
+  - name: run this command and ignore the result
+    shell: /usr/bin/somecommand || /bin/true
+
+Or this:
+
+tasks:
+  - name: run this command and ignore the result
+    shell: /usr/bin/somecommand
+    ignore_errors: True
+
+
+
+
+---->If the action line is getting too long for comfort you can break it on a space and indent any continuation lines:
+
+tasks:
+  - name: Copy ansible inventory file to client
+    copy: src=/etc/ansible/hosts dest=/etc/ansible/hosts
+            owner=root group=root mode=0644
+
+
+
